@@ -24,8 +24,6 @@ library(dplyr)
 
 ```
 
-
-
 ```{r}
 eqdc <- '+proj=eqdc +lat_0=40 +lon_0=-96 +lat_1=20 +lat_2=60 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs'
 
@@ -37,13 +35,11 @@ library(remotes)
 remotes::install_github("mikejohnson51/AOI")
 ```
 
-
 ```{r}
 ### 1.1
 
 eqdc <- '+proj=eqdc +lat_0=40 +lon_0=-96 +lat_1=20 +lat_2=60 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs'
 ```
-
 
 ```{r}
 ### 1.2
@@ -58,6 +54,7 @@ state_bounds <- aoi_get(state = 'conus')
 eqdc_state_bounds <- (eqdc_state_bounds = st_transform(state_bounds, eqdc)) |>
   filter(!state_abbr %in% c("HI","AK","PR"))
 ```
+
 ```{r}
 country_bounds <- aoi_get(country = c("MX", "CA", "USA"))
 
@@ -117,7 +114,6 @@ flextable(top5.far)
 
 ```
 
-
 ```{r}
 ## 2.2
 
@@ -138,7 +134,6 @@ far.cities <- eqdc_cities |>
 
 flextable(far.cities)
 ```
-
 
 ```{r}
 ## 2.3
@@ -169,7 +164,6 @@ top5_mexico <- eqdc_cities |>
 
 flextable(top5_mexico)
 ```
-
 
 ```{r}
 library(rmarkdown)
@@ -308,6 +302,7 @@ ggplot() +
     subtitle = "Highlighted: Top 5 most populous cities"
   )
 ```
+
 ```{r}
 ## 4.1
 city.border.zone <- eqdc_cities |>
@@ -338,8 +333,6 @@ flextable(border_summary_tbl) |>
   theme_zebra()
 ```
 
-
-
 ```{r}
 ## 4.2
 
@@ -369,7 +362,6 @@ ggplot() +
   theme_minimal()
 ```
 
-
 ```{r}
 ## 4.3
 
@@ -396,11 +388,3 @@ ggplot() +
        caption = "Distance from US border (km)") +
   theme_minimal()
 ```
-
-
-
-
-
-
-
-
